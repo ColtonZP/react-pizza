@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-pizza/static/css/main.d1b05096.chunk.css",
+    "main.js": "/react-pizza/static/js/main.e37e97e7.chunk.js",
+    "main.js.map": "/react-pizza/static/js/main.e37e97e7.chunk.js.map",
+    "runtime-main.js": "/react-pizza/static/js/runtime-main.b417e4d9.js",
+    "runtime-main.js.map": "/react-pizza/static/js/runtime-main.b417e4d9.js.map",
+    "static/js/2.ee5d3608.chunk.js": "/react-pizza/static/js/2.ee5d3608.chunk.js",
+    "static/js/2.ee5d3608.chunk.js.map": "/react-pizza/static/js/2.ee5d3608.chunk.js.map",
+    "index.html": "/react-pizza/index.html",
+    "precache-manifest.3dc9f238ab9ae2f6f1244cb15d1732d0.js": "/react-pizza/precache-manifest.3dc9f238ab9ae2f6f1244cb15d1732d0.js",
+    "service-worker.js": "/react-pizza/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/react-pizza/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.ee5d3608.chunk.js.LICENSE.txt": "/react-pizza/static/js/2.ee5d3608.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/react-pizza/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b417e4d9.js",
+    "static/js/2.ee5d3608.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.e37e97e7.chunk.js"
+  ]
+}
