@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif:700&display=swap');
+@import './Home.scss';
+@import './Menu.scss';
+@import './Pizza-maker.scss';
+@import './Order.scss';
+
+.Menu {
+	position: absolute;
+	width: 2em;
+	height: 1.5em;
+	right: 0;
+	padding: 0;
+	background: transparent;
+	border: none;
+	outline: none;
+	@media screen and (min-width: 640px) {
+		display: none;
+	}
+	&:hover {
+		background: none;
+	}
+	& .Bar {
+		background: #fff;
+		width: 100%;
+		height: 20%;
+		position: absolute;
+		transition: all 0.2s;
+		top: 0;
+	}
+	& .Middle,
+	.Middle2 {
+		top: 40%;
+	}
+	.Middle2 {
+		width: 0%;
+		margin-left: 50%;
+		transform: rotate(-45deg);
+	}
+	& .Bottom {
+		top: 80%;
+	}
+}
+.Close {
+	& .Top {
+		opacity: 0;
+		margin-left: 30%;
+	}
+	& .Middle {
+		transform: rotate(45deg);
+	}
+	& .Middle2 {
+		width: 100%;
+		margin-left: 0;
+	}
+	& .Bottom {
+		opacity: 0;
+		margin-left: -30%;
+	}
+}
+
+nav {
+	box-sizing: border-box;
+	margin: 2em 0;
+	position: relative;
+	height: 8rem;
+	& .Logo {
+		height: 100%;
+		transform: rotate(-15deg);
+	}
+	& ul {
+		height: 100%;
+		margin-top: 1.5em;
+		list-style: none;
+		@media screen and (min-width: 600px) {
+			margin-top: 0;
+		}
+		float: right;
+		display: table;
+		& li {
+			list-style: none;
+			vertical-align: middle;
+			@media screen and (min-width: 600px) {
+				display: table-cell;
+				padding-left: 4em;
+			}
+			&:first-child {
+				padding-left: 0px;
+			}
+		}
+		& a {
+			color: white;
+			font-weight: 500;
+			margin: auto;
+			font-size: 1.2em;
+			// MOBILE V
+			padding: 1em 0;
+			display: block;
+			&:visited {
+				color: white;
+			}
+			&:hover {
+				color: tomato;
+			}
+		}
+	}
+}
+
+.Nav-hiding {
+	& ul {
+		opacity: 0;
+		pointer-events: none;
+		@media screen and (min-width: 600px) {
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+}
+
+.Add {
+	margin-left: 50%;
+	cursor: pointer;
+}
+
+.Active {
+	pointer-events: none;
+}
