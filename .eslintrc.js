@@ -24,6 +24,7 @@ module.exports = {
 	plugins: ['react', 'jsx-a11y'],
 	rules: {
 		'react/jsx-filename-extension': 0,
+		"prettier/prettier": ["error", {"singleQuote": true, "parser": "flow"}],
 		'require-jsdoc': [
 			'error',
 			{

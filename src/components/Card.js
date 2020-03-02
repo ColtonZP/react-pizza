@@ -12,11 +12,10 @@ function Card(props) {
     getCardImageProps,
     getCardNumberProps,
     getExpiryDateProps,
-    getCVCProps,
+    getCVCProps
   } = usePaymentInputs();
 
-
-  const validate = (from) => {
+  const validate = from => {
     const errors = {};
     if (meta.erroredInputs.cardNumber) {
       errors.cardNumber = meta.erroredInputs.cardNumber;
@@ -43,7 +42,9 @@ function Card(props) {
   return (
     <div className="Card-main">
       <div className="Card-container">
-        <button className="Close-card" onClick={() => props.toggle()}><span>Close</span></button>
+        <button className="Close-card" onClick={() => props.toggle()}>
+          <span>Close</span>
+        </button>
         <div className="Card-input">
           <PaymentInputsWrapper {...wrapperProps}>
             <svg {...getCardImageProps({ images })} />
@@ -52,9 +53,19 @@ function Card(props) {
             <input {...getCVCProps()} />
           </PaymentInputsWrapper>
         </div>
-        <input className="Name" type="text" placeholder="Name on card" onChange={(input) => { nameChange(input.target.value); validate(); }} />
+        <input
+          className="Name"
+          type="text"
+          placeholder="Name on card"
+          onChange={input => {
+            nameChange(input.target.value);
+            validate();
+          }}
+        />
         {!isName && <span className="Name-error">Enter a name</span>}
-        <button className="Pay" onClick={() => validate('pay')}><span>Pay</span></button>
+        <button className="Pay" onClick={() => validate('pay')}>
+          <span>Pay</span>
+        </button>
       </div>
     </div>
   );
