@@ -3,19 +3,19 @@ import Pizza from './Pizza';
 import Beer from './Beer';
 import Cocktails from './Cocktails';
 
-function Menu(props) {
+function Menu() {
   return (
     <div className="Menu-page Container">
       <h2>Pizza</h2>
-      <Pizza pizzaOrder={props.pizzaOrder} />
+      <Pizza />
       <div className="Menu-page-drinks">
         <div className="Drink-option">
           <h2>Beers</h2>
-          <Beer beerOrder={props.beerOrder} />
+          <Beer />
         </div>
         <div className="Drink-option">
           <h2>Cocktails</h2>
-          <Cocktails cocktailOrder={props.cocktailOrder} />
+          <Cocktails />
         </div>
       </div>
     </div>

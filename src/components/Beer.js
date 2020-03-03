@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import beerPic from '../imgs/beer.jpg';
-import menu from './menu.json';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const { beers } = menu;
+import beerPic from '../imgs/beer.jpg';
 
 function Beer(props) {
+  const { beers } = props;
   const [selectedBeer, changeDrink] = useState(beers[0]);
 
   const returnDrink = str => {
@@ -14,7 +15,7 @@ function Beer(props) {
 
   return (
     <div className="Beer">
-      <img src={beerPic} />
+      <img src={beerPic} alt="beer on bar table" />
       <form>
         <select onChange={e => changeDrink(returnDrink(e.target.value))}>
           {beers.map(beer => (
@@ -33,4 +34,13 @@ function Beer(props) {
   );
 }
 
-export default Beer;
+Beer.propTypes = {
+  beers: PropTypes.arrayOf.isRequired,
+  beerOrder: PropTypes.arrayOf.isRequired
+};
+
+const mapStateToProps = state => {
+  return { beers: state.menu.beers };
+};
+
+export default connect(mapStateToProps)(Beer);

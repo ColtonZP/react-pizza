@@ -15,8 +15,7 @@ class App extends Component {
     this.state = {
       pizzaOrder: [],
       beerOrder: [],
-      cocktailOrder: [],
-      orderTotal: 0
+      cocktailOrder: []
     };
   }
 
@@ -45,8 +44,7 @@ class App extends Component {
       menuShow: false,
       pizzaOrder: [],
       beerOrder: [],
-      cocktailOrder: [],
-      orderTotal: 0
+      cocktailOrder: []
     });
   };
 

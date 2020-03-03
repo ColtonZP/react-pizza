@@ -58,7 +58,7 @@ function PizzaMaker(props) {
             />
           ))}
           <div className="Pizza-span">
-            <span className="Pizza-price">${pizza.price.toFixed(2)}</span>
+            <span className="Pizza-price">{`$${pizza.price.toFixed(2)}`}</span>
             <Link to="/menu">
               <button
                 type="button"

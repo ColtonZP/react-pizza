@@ -1,40 +1,47 @@
 import React, { useState } from 'react';
-import cocktailPic from '../imgs/cocktail.jpg';
-import menu from '../components/menu.json';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const cocktails = menu.cocktails;
+import cocktailPic from '../imgs/cocktail.jpg';
 
 function Cocktails(props) {
-	const [selectedCocktail, changeDrink] = useState(cocktails[0]);
+  const { cocktails } = props;
 
-	const returnDrink = str => {
-		const newStr = str.substring(0, str.indexOf(' - '));
-		return cocktails.find(({ name }) => name === newStr);
-	};
+  const [selectedCocktail, changeDrink] = useState(cocktails[0]);
 
-	return (
-		<div className="Cocktail">
-			<img src={cocktailPic} />
-			<form>
-				<select onChange={e => changeDrink(returnDrink(e.target.value))}>
-					{cocktails.map(cocktail => (
-						<option key={cocktail.name}>
-							{`${cocktail.name} - $${cocktail.price.toFixed(2)}`}
-						</option>
-					))}
-				</select>
-				<input
-					type="submit"
-					value="add to order"
-					onClick={() => props.cocktailOrder(selectedCocktail, 'cocktail')}
-				/>
-			</form>
-		</div>
-	);
+  const returnDrink = str => {
+    const newStr = str.substring(0, str.indexOf(' - '));
+    return cocktails.find(({ name }) => name === newStr);
+  };
+
+  return (
+    <div className="Cocktail">
+      <img src={cocktailPic} alt="cocktail on bar table" />
+      <form>
+        <select onChange={e => changeDrink(returnDrink(e.target.value))}>
+          {cocktails.map(cocktail => (
+            <option key={cocktail.name}>
+              {`${cocktail.name} - $${cocktail.price.toFixed(2)}`}
+            </option>
+          ))}
+        </select>
+        <input
+          type="submit"
+          value="add to order"
+          onClick={() => props.cocktailOrder(selectedCocktail, 'cocktail')}
+        />
+      </form>
+    </div>
+  );
 }
 
-// Cocktails.propTypes = {
-// 	cocktailOrder: PropTypes.arrayOf.isRequired,
-// };
+Cocktails.propTypes = {
+  cocktails: PropTypes.arrayOf.isRequired,
+  cocktailOrder: PropTypes.arrayOf.isRequired
+};
 
-export default Cocktails;
+const mapStateToProps = state => {
+  return { cocktails: state.menu.cocktails };
+};
+
+export default connect(mapStateToProps)(Cocktails);
