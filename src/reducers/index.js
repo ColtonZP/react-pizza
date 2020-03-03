@@ -9,6 +9,15 @@ const initState = () => {
   };
 };
 
+const addToOrder = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_ITEM':
+      return [...state, action.payload];
+    default:
+      return state;
+  }
+};
+
 const pizzaInfo = (state = {}, action) => {
   switch (action.type) {
     case 'GET_INFO':
