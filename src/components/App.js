@@ -82,7 +82,7 @@ class App extends Component {
               <Route
                 path="/pizza-:id"
                 component={props => (
-                  <PizzaPage {...props} pizzaOrder={this.addToOrder} />
+                  <PizzaPage match={props.match} pizzaOrder={this.addToOrder} />
                 )}
               />
             </Switch>

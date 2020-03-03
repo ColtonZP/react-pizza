@@ -9,7 +9,17 @@ const initState = () => {
   };
 };
 
+const pizzaInfo = (state = {}, action) => {
+  switch (action.type) {
+    case 'GET_INFO':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   menu,
-  order: initState
+  order: initState,
+  pizzaInfo
 });

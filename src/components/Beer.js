@@ -35,8 +35,7 @@ function Beer(props) {
 }
 
 Beer.propTypes = {
-  beers: PropTypes.arrayOf.isRequired,
-  beerOrder: PropTypes.arrayOf.isRequired
+  beers: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => {

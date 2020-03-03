@@ -1,43 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getPizzaInfo } from '../actions';
+
 import pizzaPic from '../imgs/Pizza.jpg';
 
 class PizzaPage extends Component {
-  state = {
-    pizza: {},
-    name: '',
-    price: '',
-    img: '',
-    desc: '',
-    toppings: [],
-    id: ''
-  };
-
   componentDidMount() {
-    const { match } = this.props;
-
-    const { id } = match.params;
-    const menu = require('./menu.json');
-    const pizza = menu.pizzas[id];
-    const { desc } = pizza;
-    const img = require(`../imgs/pizza/${pizza.name
-      .replace(/\s/g, '-')
-      .toLocaleLowerCase()}.png`);
-    // const pizza = menu: id;
-
-    this.setState({
-      pizza,
-      name: pizza.name,
-      price: pizza.price,
-      toppings: pizza.toppings,
-      desc,
-      img,
-      id
-    });
+    const { id } = this.props.match.params;
+    const pizzaCap = id.charAt(0).toUpperCase() + id.slice(1);
+    this.props.getPizzaInfo(pizzaCap);
   }
 
   render() {
-    const { pizza, name, price, desc, img, toppings } = this.state;
+    const { pizza } = this.props;
+    const { name, price, desc, img, toppings } = pizza;
     return (
       <div className="Pizza-page">
         <img className="Header-pic" alt="" src={pizzaPic} />
@@ -46,8 +23,7 @@ class PizzaPage extends Component {
             <img className="Pizza-bottom" alt="" src={img} />
             <div className="Pizza-span">
               <span className="Pizza-price">
-                {name} Pizza - $
-{Number(price).toFixed(2)}
+                {name} Pizza - ${Number(price).toFixed(2)}
               </span>
               <Link to="/menu">
                 <button
@@ -67,11 +43,11 @@ class PizzaPage extends Component {
             </div>
             <div className="Pizza-toppings">
               <span className="Tittle">Toppings</span>
-              <ul>
+              {/* <ul>
                 {toppings.map(topping => (
                   <li>{topping}</li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>
@@ -80,4 +56,8 @@ class PizzaPage extends Component {
   }
 }
 
-export default PizzaPage;
+const mapStateToProps = state => {
+  return { pizza: state.pizzaInfo };
+};
+
+export default connect(mapStateToProps, { getPizzaInfo })(PizzaPage);

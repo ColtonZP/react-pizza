@@ -19,19 +19,12 @@ function Pizza(props) {
           </li>
           {pizzas.map(pizza => (
             <li key={pizza.name}>
-              {/* <button
-								type="button"
-								onClick={() => props.pizzaOrder(pizza, 'pizza')}
-							>
-								Add to order
-							</button> */}
               <img alt="" src={pizza.img} />
               <Link
                 to={{
                   pathname: `/pizza-${pizza.name
                     .replace(/\s/g, '-')
-                    .toLocaleLowerCase()}`,
-                  props: pizza
+                    .toLocaleLowerCase()}`
                 }}
               >
                 <button type="button">{pizza.name}</button>
@@ -45,7 +38,7 @@ function Pizza(props) {
 }
 
 Pizza.propTypes = {
-  pizzas: PropTypes.arrayOf.isRequired
+  pizzas: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => {

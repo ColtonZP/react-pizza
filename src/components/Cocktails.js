@@ -28,7 +28,7 @@ function Cocktails(props) {
         <input
           type="submit"
           value="add to order"
-          onClick={() => props.cocktailOrder(selectedCocktail, 'cocktail')}
+          // onClick={() => props.cocktailOrder(selectedCocktail, 'cocktail')}
         />
       </form>
     </div>
@@ -36,8 +36,7 @@ function Cocktails(props) {
 }
 
 Cocktails.propTypes = {
-  cocktails: PropTypes.arrayOf.isRequired,
-  cocktailOrder: PropTypes.arrayOf.isRequired
+  cocktails: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => {

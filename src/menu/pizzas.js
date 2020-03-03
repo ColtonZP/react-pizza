@@ -12,48 +12,62 @@ export default [
     name: 'Pepperoni',
     price: 12,
     toppings: ['pepperoni'],
-    img: pepperoniPic
+    img: pepperoniPic,
+    desc:
+      'The classic gourmet pizza that is ideal for any night, complete with mozzarella cheese and pepperoni.'
   },
   {
     name: 'Cheese',
     price: 12,
-    toppings: [''],
-    img: cheesePic
+    toppings: ['cheese'],
+    img: cheesePic,
+    desc:
+      'The simplest of pizza made with classic marinara sauce topped with mozzarella cheese.'
   },
   {
     name: 'Meat Lovers',
     price: 13.5,
     toppings: ['pepperoni', 'bacon', 'ham', 'sausage'],
-    img: meatPic
+    img: meatPic,
+    desc:
+      "Meat lover's pizza is the perfect game day pizza, packed with everyone's favorite meat!"
   },
   {
     name: 'Supreme',
     price: 14,
     toppings: ['pepperoni', 'green pepper', 'olives', 'onion'],
-    img: supremePic
+    img: supremePic,
+    desc:
+      'Enjoy this freshly prepared pizza for family dinner or a group lunch.'
   },
   {
     name: 'Veggie',
     price: 14,
     toppings: ['onion', 'mushroom', 'olives', 'green pepper'],
-    img: veggiePic
+    img: veggiePic,
+    desc: 'Featuring all the classic vegetable toppings you know and love.'
   },
   {
     name: 'Hawaiian',
     price: 13,
     toppings: ['ham', 'pineapple'],
-    img: hawaiianPic
+    img: hawaiianPic,
+    desc:
+      'Take a quick trip to paradise, this simple pizza is perfect for any get together.'
   },
   {
     name: 'BBQ Chicken',
     price: 13,
     toppings: ['chicken', 'onion', 'bbq Sauce'],
-    img: bbqPic
+    img: bbqPic,
+    desc: ''
   },
   {
     name: 'Buffalo Chicken',
     price: 13,
     toppings: ['chicken', 'buffalo sauce'],
-    img: buffaloPic
+    img: buffaloPic,
+    desc:
+      'This classic pizza featuring tasty buffalo sauce and tender chicken is your go-to for any weeknight.'
   }
 ];
