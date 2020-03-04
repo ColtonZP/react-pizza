@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { addBeer } from '../actions';
 
 import beerPic from '../imgs/beer.jpg';
 
@@ -27,7 +28,7 @@ function Beer(props) {
         <input
           type="submit"
           value="add to order"
-          onClick={() => props.beerOrder(selectedBeer, 'beer')}
+          onClick={() => props.addBeer(selectedBeer)}
         />
       </form>
     </div>
@@ -42,4 +43,4 @@ const mapStateToProps = state => {
   return { beers: state.menu.beers };
 };
 
-export default connect(mapStateToProps)(Beer);
+export default connect(mapStateToProps, { addBeer })(Beer);

@@ -13,6 +13,20 @@ export const addPizza = item => dispatch => {
   });
 };
 
+export const addBeer = item => dispatch => {
+  dispatch({
+    type: 'ADD_BEER',
+    payload: item
+  });
+};
+
+export const addCocktail = item => dispatch => {
+  dispatch({
+    type: 'ADD_COCKTAIL',
+    payload: item
+  });
+};
+
 export const removeFromOrder = (item, type) => dispatch => {
   dispatch({
     type: 'REMOVE_ITEM',
