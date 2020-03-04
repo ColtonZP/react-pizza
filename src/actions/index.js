@@ -38,6 +38,21 @@ export const getTotal = (pizzas, beers, cocktails) => dispatch => {
   });
 };
 
+export const clearOrder = () => dispatch => {
+  dispatch({
+    type: 'CLEAR_PIZZA',
+    payload: []
+  });
+  dispatch({
+    type: 'CLEAR_BEER',
+    payload: []
+  });
+  dispatch({
+    type: 'CLEAR_COCKTAIL',
+    payload: []
+  });
+};
+
 export const removeFromOrder = (item, type) => dispatch => {
   dispatch({
     type: 'REMOVE_ITEM',

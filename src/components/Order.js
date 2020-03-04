@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getTotal } from '../actions';
+import { getTotal, clearOrder } from '../actions';
 
 import Card from './Card';
 
 function Order(props) {
   const { pizzaOrder, beerOrder, cocktailOrder, total } = props;
   const [showingPayment, toggleShowing] = useState(false);
+
   const togglePayment = () => {
     toggleShowing(!showingPayment);
   };
@@ -98,4 +99,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getTotal })(Order);
+export default connect(mapStateToProps, { getTotal, clearOrder })(Order);

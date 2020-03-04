@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
+
 import images from 'react-payment-inputs/images';
+import { clearOrder } from '../actions';
 
 function Card(props) {
   const [name, nameChange] = useState('');
@@ -33,7 +37,7 @@ function Card(props) {
       changeIsName(true);
     }
     if (from === 'pay' && Object.keys(errors).length === 0) {
-      props.finishOrder();
+      props.clearOrder();
       props.toggle();
     }
     return errors;
@@ -42,7 +46,11 @@ function Card(props) {
   return (
     <div className="Card-main">
       <div className="Card-container">
-        <button className="Close-card" onClick={() => props.toggle()}>
+        <button
+          type="button"
+          className="Close-card"
+          onClick={() => props.toggle()}
+        >
           <span>Close</span>
         </button>
         <div className="Card-input">
@@ -63,7 +71,7 @@ function Card(props) {
           }}
         />
         {!isName && <span className="Name-error">Enter a name</span>}
-        <button className="Pay" onClick={() => validate('pay')}>
+        <button type="button" className="Pay" onClick={() => validate('pay')}>
           <span>Pay</span>
         </button>
       </div>
@@ -71,4 +79,9 @@ function Card(props) {
   );
 }
 
-export default Card;
+Card.propTypes = {
+  clearOrder: PropTypes.func.isRequired,
+  toggle: PropTypes.func.isRequired
+};
+
+export default connect(null, { clearOrder })(Card);
