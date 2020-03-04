@@ -1,9 +1,15 @@
 import pizzas from '../menu/pizzas';
 
-export const addToOrder = (item, type) => dispatch => {
+export const toggleNav = () => dispatch => {
   dispatch({
-    type: 'ADD_ITEM',
-    payload: (item, type)
+    type: 'TOGGLE_N'
+  });
+};
+
+export const addPizza = item => dispatch => {
+  dispatch({
+    type: 'ADD_PIZZA',
+    payload: item
   });
 };
 

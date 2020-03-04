@@ -9,7 +9,8 @@ import buffaloPic from '../imgs/pizza/buffalo-chicken.png';
 
 export default [
   {
-    name: 'Pepperoni',
+    name: 'pepperoni',
+    tittle: 'Pepperoni',
     price: 12,
     toppings: ['pepperoni'],
     img: pepperoniPic,
@@ -17,7 +18,8 @@ export default [
       'The classic gourmet pizza that is ideal for any night, complete with mozzarella cheese and pepperoni.'
   },
   {
-    name: 'Cheese',
+    name: 'cheese',
+    tittle: 'Cheese',
     price: 12,
     toppings: ['cheese'],
     img: cheesePic,
@@ -25,7 +27,8 @@ export default [
       'The simplest of pizza made with classic marinara sauce topped with mozzarella cheese.'
   },
   {
-    name: 'Meat Lovers',
+    name: 'meat-lovers',
+    tittle: 'Meat Lovers',
     price: 13.5,
     toppings: ['pepperoni', 'bacon', 'ham', 'sausage'],
     img: meatPic,
@@ -33,7 +36,8 @@ export default [
       "Meat lover's pizza is the perfect game day pizza, packed with everyone's favorite meat!"
   },
   {
-    name: 'Supreme',
+    name: 'supreme',
+    tittle: 'Supreme',
     price: 14,
     toppings: ['pepperoni', 'green pepper', 'olives', 'onion'],
     img: supremePic,
@@ -41,14 +45,16 @@ export default [
       'Enjoy this freshly prepared pizza for family dinner or a group lunch.'
   },
   {
-    name: 'Veggie',
+    name: 'veggie',
+    tittle: 'Veggie',
     price: 14,
     toppings: ['onion', 'mushroom', 'olives', 'green pepper'],
     img: veggiePic,
     desc: 'Featuring all the classic vegetable toppings you know and love.'
   },
   {
-    name: 'Hawaiian',
+    name: 'hawaiian',
+    tittle: 'Hawaiian',
     price: 13,
     toppings: ['ham', 'pineapple'],
     img: hawaiianPic,
@@ -56,14 +62,16 @@ export default [
       'Take a quick trip to paradise, this simple pizza is perfect for any get together.'
   },
   {
-    name: 'BBQ Chicken',
+    name: 'bbq-chicken',
+    tittle: 'BBQ Chicken',
     price: 13,
     toppings: ['chicken', 'onion', 'bbq Sauce'],
     img: bbqPic,
     desc: ''
   },
   {
-    name: 'Buffalo Chicken',
+    name: 'buffalo-chicken',
+    tittle: 'Buffalo Chicken',
     price: 13,
     toppings: ['chicken', 'buffalo sauce'],
     img: buffaloPic,

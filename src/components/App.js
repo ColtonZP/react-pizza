@@ -10,14 +10,14 @@ import Order from './Order';
 import ScrollToTop from './ScrollToTop';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pizzaOrder: [],
-      beerOrder: [],
-      cocktailOrder: []
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     pizzaOrder: [],
+  //     beerOrder: [],
+  //     cocktailOrder: []
+  //   };
+  // }
 
   toggle = () => {
     this.setState(prevState => ({ menuShow: !prevState.menuShow }));

@@ -3,15 +3,24 @@ import menu from '../menu/index';
 
 const initState = () => {
   return {
-    pizzaOrder: [],
-    beerOrder: [],
+    pizza: [],
+    beer: [],
     cocktails: []
   };
 };
 
-const addToOrder = (state = [], action) => {
+const toggleNav = (state = false, action) => {
   switch (action.type) {
-    case 'ADD_ITEM':
+    case 'TOGGLE_NAV':
+      return !state;
+    default:
+      return state;
+  }
+};
+
+const pizzaOrder = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_PIZZA':
       return [...state, action.payload];
     default:
       return state;
@@ -28,7 +37,8 @@ const pizzaInfo = (state = {}, action) => {
 };
 
 export default combineReducers({
+  nav: toggleNav,
   menu,
-  order: initState,
+  pizzaOrder,
   pizzaInfo
 });

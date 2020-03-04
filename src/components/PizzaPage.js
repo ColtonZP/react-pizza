@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getPizzaInfo } from '../actions';
+import PropTypes from 'prop-types';
 
+import { getPizzaInfo, addPizza } from '../actions';
 import pizzaPic from '../imgs/Pizza.jpg';
 
 class PizzaPage extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
-    const pizzaCap = id.charAt(0).toUpperCase() + id.slice(1);
-    this.props.getPizzaInfo(pizzaCap);
+    this.props.getPizzaInfo(id);
   }
 
   render() {
     const { pizza } = this.props;
-    const { name, price, desc, img, toppings } = pizza;
+    const { tittle, price, desc, img, toppings = [] } = pizza;
     return (
       <div className="Pizza-page">
         <img className="Header-pic" alt="" src={pizzaPic} />
@@ -23,13 +23,13 @@ class PizzaPage extends Component {
             <img className="Pizza-bottom" alt="" src={img} />
             <div className="Pizza-span">
               <span className="Pizza-price">
-                {name} Pizza - ${Number(price).toFixed(2)}
+                {`${tittle} Pizza - $${Number(price).toFixed(2)}`}
               </span>
               <Link to="/menu">
                 <button
                   type="button"
                   className="Add-custom-pizza"
-                  onClick={() => this.props.pizzaOrder(pizza, 'pizza')}
+                  onClick={() => this.props.addPizza(pizza, 'pizza')}
                 >
                   <span>Add to order</span>
                 </button>
@@ -43,11 +43,11 @@ class PizzaPage extends Component {
             </div>
             <div className="Pizza-toppings">
               <span className="Tittle">Toppings</span>
-              {/* <ul>
+              <ul>
                 {toppings.map(topping => (
-                  <li>{topping}</li>
+                  <li key={topping}>{topping}</li>
                 ))}
-              </ul> */}
+              </ul>
             </div>
           </div>
         </div>
@@ -60,4 +60,11 @@ const mapStateToProps = state => {
   return { pizza: state.pizzaInfo };
 };
 
-export default connect(mapStateToProps, { getPizzaInfo })(PizzaPage);
+PizzaPage.propTypes = {
+  match: PropTypes.object.isRequired,
+  pizza: PropTypes.object.isRequired
+};
+
+export default connect(mapStateToProps, { getPizzaInfo, addPizza })(
+  PizzaPage
+);
