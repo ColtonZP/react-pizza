@@ -10,44 +10,6 @@ import Order from './Order';
 import ScrollToTop from './ScrollToTop';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     pizzaOrder: [],
-  //     beerOrder: [],
-  //     cocktailOrder: []
-  //   };
-  // }
-
-  toggle = () => {
-    this.setState(prevState => ({ menuShow: !prevState.menuShow }));
-  };
-
-  addToOrder = (item, type) => {
-    if (type === 'pizza') {
-      this.setState(prevState => ({
-        pizzaOrder: [...prevState.pizzaOrder, item]
-      }));
-    } else if (type === 'beer') {
-      this.setState(prevState => ({
-        beerOrder: [...prevState.beerOrder, item]
-      }));
-    } else if (type === 'cocktail') {
-      this.setState(prevState => ({
-        cocktailOrder: [...prevState.cocktailOrder, item]
-      }));
-    }
-  };
-
-  clearOrder = () => {
-    this.setState({
-      menuShow: false,
-      pizzaOrder: [],
-      beerOrder: [],
-      cocktailOrder: []
-    });
-  };
-
   render() {
     return (
       <div className="App">
