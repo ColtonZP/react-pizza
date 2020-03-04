@@ -1,15 +1,6 @@
 import { combineReducers } from 'redux';
 import menu from '../menu/index';
 
-const toggleNav = (state = false, action) => {
-  switch (action.type) {
-    case 'TOGGLE_NAV':
-      return !state;
-    default:
-      return state;
-  }
-};
-
 const pizzaOrder = (state = [], action) => {
   switch (action.type) {
     case 'ADD_PIZZA':
@@ -46,11 +37,20 @@ const pizzaInfo = (state = {}, action) => {
   }
 };
 
+const total = (state = {}, action) => {
+  switch (action.type) {
+    case 'GET_TOTAL':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
-  nav: toggleNav,
   menu,
   pizzaOrder,
   beerOrder,
   cocktailOrder,
-  pizzaInfo
+  pizzaInfo,
+  total
 });

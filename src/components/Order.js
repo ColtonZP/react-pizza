@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getTotal } from '../actions';
+
 import Card from './Card';
 
 function Order(props) {
-  const { order } = props;
-  const { finishOrder } = props;
+  const { pizzaOrder, beerOrder, cocktailOrder, total } = props;
   const [showingPayment, toggleShowing] = useState(false);
-
   const togglePayment = () => {
     toggleShowing(!showingPayment);
   };
+
+  useEffect(() => {
+    props.getTotal(pizzaOrder, beerOrder, cocktailOrder);
+  });
 
   return (
     <div className="Order-page">
       <div className="Container">
         <div className="Receipt">
           <h2>Order:</h2>
-          {order.pizzaOrder.length >= 1 && <h2>Pizza</h2>}
+          {pizzaOrder.length >= 1 && <h2>Pizza</h2>}
           <ul>
-            {order.pizzaOrder.map(item => (
+            {pizzaOrder.map(item => (
               <li>
                 <span className="Title">{`${item.name} Pizza`}</span>
                 <span>{`$${item.price.toFixed(2)}`}</span>
@@ -33,18 +38,18 @@ function Order(props) {
               </li>
             ))}
           </ul>
-          {order.beerOrder.length >= 1 && <h2>Beer</h2>}
+          {beerOrder.length >= 1 && <h2>Beer</h2>}
           <ul>
-            {order.beerOrder.map(item => (
+            {beerOrder.map(item => (
               <li>
                 <span className="Title">{item.name}</span>
                 <span>{`$${item.price.toFixed(2)}`}</span>
               </li>
             ))}
           </ul>
-          {order.cocktailOrder.length >= 1 && <h2>Cocktail</h2>}
+          {cocktailOrder.length >= 1 && <h2>Cocktail</h2>}
           <ul>
-            {order.cocktailOrder.map(item => (
+            {cocktailOrder.map(item => (
               <li>
                 <span className="Title">{item.name}</span>
                 <span>{`$${item.price.toFixed(2)}`}</span>
@@ -54,24 +59,22 @@ function Order(props) {
         </div>
         <div className="Checkout-main">
           <div className="Checkout">
-            {/* <span>Sub total: ${order.orderTotal.toFixed(2)}</span> */}
-            <span>Tax: ${(order.orderTotal * 0.101).toFixed(2)}</span>
+            <span>{`Sub total: $${Number(total).toFixed(2)}`}</span>
+            <span>{`Tax: $${(Number(total) * 0.101).toFixed(2)}`}</span>
             <span>
-              Total: ${(order.orderTotal + order.orderTotal * 0.101).toFixed(2)}
+              {`Total: $${(Number(total) + Number(total) * 0.101).toFixed(2)}`}
             </span>
-            {order.orderTotal <= 0 ? (
+            {total <= 0 ? (
               <span className="Order-message">
                 You must add items to the order before checking out
               </span>
             ) : (
-              <button onClick={togglePayment}>
+              <button type="button" onClick={togglePayment}>
                 <span>Order</span>
               </button>
             )}
           </div>
-          {showingPayment && (
-            <Card toggle={togglePayment} finishOrder={finishOrder} />
-          )}
+          {showingPayment && <Card toggle={togglePayment} />}
         </div>
       </div>
     </div>
@@ -79,8 +82,20 @@ function Order(props) {
 }
 
 Order.propTypes = {
-  order: PropTypes.arrayOf.isRequired,
-  finishOrder: PropTypes.func.isRequired
+  getTotal: PropTypes.func.isRequired,
+  pizzaOrder: PropTypes.array.isRequired,
+  beerOrder: PropTypes.array.isRequired,
+  cocktailOrder: PropTypes.array.isRequired,
+  total: PropTypes.number.isRequired
 };
 
-export default Order;
+const mapStateToProps = state => {
+  return {
+    pizzaOrder: state.pizzaOrder,
+    beerOrder: state.beerOrder,
+    cocktailOrder: state.cocktailOrder,
+    total: state.total
+  };
+};
+
+export default connect(mapStateToProps, { getTotal })(Order);

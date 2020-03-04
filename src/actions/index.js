@@ -1,11 +1,5 @@
 import pizzas from '../menu/pizzas';
 
-export const toggleNav = () => dispatch => {
-  dispatch({
-    type: 'TOGGLE_N'
-  });
-};
-
 export const addPizza = item => dispatch => {
   dispatch({
     type: 'ADD_PIZZA',
@@ -24,6 +18,23 @@ export const addCocktail = item => dispatch => {
   dispatch({
     type: 'ADD_COCKTAIL',
     payload: item
+  });
+};
+
+export const getTotal = (pizzas, beers, cocktails) => dispatch => {
+  let total = 0;
+  pizzas.forEach(pizza => {
+    total += pizza.price;
+  });
+  beers.forEach(beer => {
+    total += beer.price;
+  });
+  cocktails.forEach(cocktail => {
+    total += cocktail.price;
+  });
+  dispatch({
+    type: 'GET_TOTAL',
+    payload: total
   });
 };
 
