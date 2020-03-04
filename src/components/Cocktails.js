@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { addCocktail } from '../actions';
 
 import cocktailPic from '../imgs/cocktail.jpg';
 
@@ -28,7 +29,7 @@ function Cocktails(props) {
         <input
           type="submit"
           value="add to order"
-          // onClick={() => props.cocktailOrder(selectedCocktail, 'cocktail')}
+          onClick={() => props.addCocktail(selectedCocktail)}
         />
       </form>
     </div>
@@ -43,4 +44,4 @@ const mapStateToProps = state => {
   return { cocktails: state.menu.cocktails };
 };
 
-export default connect(mapStateToProps)(Cocktails);
+export default connect(mapStateToProps, { addCocktail })(Cocktails);
