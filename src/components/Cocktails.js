@@ -29,6 +29,7 @@ function Cocktails(props) {
         <input
           type="submit"
           value="add to order"
+          className=""
           onClick={() => props.addCocktail(selectedCocktail)}
         />
       </form>

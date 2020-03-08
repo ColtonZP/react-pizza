@@ -7,7 +7,7 @@
 	}
 	& .Checkout {
 		background: #1d1d1d;
-		padding: 10px;
+		padding: 1rem;
 		width: 100%;
 		& span {
 			font-weight: bold;
@@ -15,33 +15,33 @@
 		}
 		& .Order-message {
 			color: white;
-			font-size: 16px;
-			margin-top: 5px;
+			font-size: 1em;
+			margin-top: 1rem;
 			background: tomato;
 			border: none;
 			font-weight: bold;
-			padding: 10px;
+			padding: 1rem;
 		}
 		& button {
 			width: 100%;
-			margin-top: 5px;
+			margin-top: 1rem;
 		}
 	}
 	& .Receipt {
 		color: black;
 		background-color: white;
 		width: 100%;
-		padding: 10px;
+		padding: 1rem;
 		box-sizing: border-box;
 		position: relative;
-		margin-bottom: 10px;
+		margin-bottom: 1rem;
 		& ul {
 			list-style: none;
 			padding: 0;
 			margin: 0;
 			& li {
 				position: relative;
-				margin: 5px 0;
+				margin: .5rem 0;
 				& .Title {
 					display: block;
 					border-bottom: 3px dotted #000000;
@@ -53,7 +53,7 @@
 				}
 			}
 			& ul {
-				margin-left: 10px;
+				margin-left: 1rem;
 			}
 		}
 	}
@@ -70,30 +70,34 @@
 	& .Card-container {
 		display: inline-flex;
 		flex-direction: column;
-		margin: 50px auto;
-		padding: 0 10px;
+		margin: 2rem auto;
+		padding: 0 1rem;
 		background-color: #2d2d2d;
 		text-align: center;
 		& button {
 			padding: 0.4em 0.6em;
-			margin: 10px 0;
+			margin: 1rem 0;
+			font-size: 1em;
 		}
-		& .dUEXvh {
-			border-color: white;
-			box-shadow: none;
-		}
-		& .Name {
-			height: 2.5em;
-			padding: 0.4em 0.6em;
-			font-size: inherit;
-			border: 1px solid white;
-			margin-top: 10px;
+		& .Card-input > div > div,
+		.Name {
+			border: none;
+			border-radius: 0;
+			height: 2.5rem;
+			padding: 0.5em 0.5em;
+			font-size: 1rem;
 			outline: none;
 		}
-		& .Name-error {
-			color: #c9444d;
-			font-size: 0.75rem;
-			margin-top: 0.25rem;
+		& .Name {
+			margin-top: 1rem;
+		}
+		& .Card-input > div > div:nth-child(2),
+		.Name-error {
+			color: tomato;
+			font-size: 0.8em;
+			margin: 0.2rem 0 0 0;
+			padding: 0;
+			height: inherit;
 		}
 	}
 }
