@@ -4,9 +4,21 @@ import menu from '../menu/index';
 const pizzaOrder = (state = [], action) => {
   switch (action.type) {
     case 'ADD_PIZZA':
-      return [...state, action.payload];
+      if (state.includes(action.payload.item)) {
+        return state.map(item => {
+          if (item === action.payload.item) {
+            item.quantity += 1;
+            return item;
+          }
+          return item;
+        });
+      }
+      action.payload.item.quantity = 1;
+      return [...state, action.payload.item];
     case 'CLEAR_PIZZA':
       return action.payload;
+    case 'REMOVE_PIZZA':
+      return state.filter(pizza => pizza !== action.payload);
     default:
       return state;
   }
@@ -15,6 +27,16 @@ const pizzaOrder = (state = [], action) => {
 const beerOrder = (state = [], action) => {
   switch (action.type) {
     case 'ADD_BEER':
+      if (state.includes(action.payload)) {
+        return state.map(item => {
+          if (item === action.payload) {
+            item.quantity += 1;
+            return item;
+          }
+          return item;
+        });
+      }
+      action.payload.quantity = 1;
       return [...state, action.payload];
     case 'CLEAR_BEER':
       return action.payload;
@@ -26,6 +48,16 @@ const beerOrder = (state = [], action) => {
 const cocktailOrder = (state = [], action) => {
   switch (action.type) {
     case 'ADD_COCKTAIL':
+      if (state.includes(action.payload)) {
+        return state.map(item => {
+          if (item === action.payload) {
+            item.quantity += 1;
+            return item;
+          }
+          return item;
+        });
+      }
+      action.payload.quantity = 1;
       return [...state, action.payload];
     case 'CLEAR_COCKTAIL':
       return action.payload;

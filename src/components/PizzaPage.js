@@ -14,7 +14,7 @@ class PizzaPage extends Component {
 
   render() {
     const { pizza } = this.props;
-    const { tittle, price, desc, img, toppings = [] } = pizza;
+    const { title, price, desc, img, toppings = [] } = pizza;
     return (
       <div className="Pizza-page">
         <img className="Header-pic" alt="" src={pizzaPic} />
@@ -23,7 +23,7 @@ class PizzaPage extends Component {
             <img className="Pizza-bottom" alt="" src={img} />
             <div className="Pizza-span">
               <span className="Pizza-price">
-                {`${tittle} Pizza - $${Number(price).toFixed(2)}`}
+                {`${title} Pizza - $${Number(price).toFixed(2)}`}
               </span>
               <Link to="/menu">
                 <button
@@ -38,11 +38,11 @@ class PizzaPage extends Component {
           </div>
           <div className="Pizza-about">
             <div className="Pizza-description">
-              <span className="Tittle">Description</span>
+              <span className="Title">Description</span>
               <p>{desc}</p>
             </div>
             <div className="Pizza-toppings">
-              <span className="Tittle">Toppings</span>
+              <span className="Title">Toppings</span>
               <ul>
                 {toppings.map(topping => (
                   <li key={topping}>{topping}</li>
@@ -65,6 +65,4 @@ PizzaPage.propTypes = {
   pizza: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, { getPizzaInfo, addPizza })(
-  PizzaPage
-);
+export default connect(mapStateToProps, { getPizzaInfo, addPizza })(PizzaPage);

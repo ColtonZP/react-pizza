@@ -72,7 +72,7 @@ function PizzaMaker(props) {
         </div>
         <div className="Toppings">
           <div className="Meats">
-            <span className="Tittle">Meats</span>
+            <span className="Title">Meats</span>
             <ul>
               {meatToppings.map(topping => (
                 <li>
@@ -105,7 +105,7 @@ function PizzaMaker(props) {
             </ul>
           </div>
           <div className="Veggie">
-            <span className="Tittle">Veggie</span>
+            <span className="Title">Veggie</span>
             <ul>
               {veggieToppings.map(topping => (
                 <li>
@@ -138,7 +138,7 @@ function PizzaMaker(props) {
             </ul>
           </div>
           <div className="Non-veggie">
-            <span className="Tittle">Non Veggie or Meats</span>
+            <span className="Title">Non Veggie or Meats</span>
             <ul>
               {nonVeggieToppings.map(topping => (
                 <li>

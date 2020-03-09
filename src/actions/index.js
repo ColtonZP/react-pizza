@@ -1,8 +1,15 @@
 import pizzas from '../menu/pizzas';
 
-export const addPizza = item => dispatch => {
+export const addPizza = (item, quantity) => dispatch => {
   dispatch({
     type: 'ADD_PIZZA',
+    payload: { item, quantity }
+  });
+};
+
+export const removePizza = item => dispatch => {
+  dispatch({
+    type: 'REMOVE_PIZZA',
     payload: item
   });
 };
@@ -24,13 +31,13 @@ export const addCocktail = item => dispatch => {
 export const getTotal = (pizzas, beers, cocktails) => dispatch => {
   let total = 0;
   pizzas.forEach(pizza => {
-    total += pizza.price;
+    total += pizza.price * pizza.quantity;
   });
   beers.forEach(beer => {
-    total += beer.price;
+    total += beer.price * beer.quantity;
   });
   cocktails.forEach(cocktail => {
-    total += cocktail.price;
+    total += cocktail.price * cocktail.quantity;
   });
   dispatch({
     type: 'GET_TOTAL',
@@ -50,13 +57,6 @@ export const clearOrder = () => dispatch => {
   dispatch({
     type: 'CLEAR_COCKTAIL',
     payload: []
-  });
-};
-
-export const removeFromOrder = (item, type) => dispatch => {
-  dispatch({
-    type: 'REMOVE_ITEM',
-    payload: (item, type)
   });
 };
 

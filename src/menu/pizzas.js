@@ -10,7 +10,7 @@ import buffaloPic from '../imgs/pizza/buffalo-chicken.png';
 export default [
   {
     name: 'pepperoni',
-    tittle: 'Pepperoni',
+    title: 'Pepperoni',
     price: 12,
     toppings: ['pepperoni'],
     img: pepperoniPic,
@@ -19,7 +19,7 @@ export default [
   },
   {
     name: 'cheese',
-    tittle: 'Cheese',
+    title: 'Cheese',
     price: 12,
     toppings: ['cheese'],
     img: cheesePic,
@@ -28,7 +28,7 @@ export default [
   },
   {
     name: 'meat-lovers',
-    tittle: 'Meat Lovers',
+    title: 'Meat Lovers',
     price: 13.5,
     toppings: ['pepperoni', 'bacon', 'ham', 'sausage'],
     img: meatPic,
@@ -37,7 +37,7 @@ export default [
   },
   {
     name: 'supreme',
-    tittle: 'Supreme',
+    title: 'Supreme',
     price: 14,
     toppings: ['pepperoni', 'green pepper', 'olives', 'onion'],
     img: supremePic,
@@ -46,7 +46,7 @@ export default [
   },
   {
     name: 'veggie',
-    tittle: 'Veggie',
+    title: 'Veggie',
     price: 14,
     toppings: ['onion', 'mushroom', 'olives', 'green pepper'],
     img: veggiePic,
@@ -54,7 +54,7 @@ export default [
   },
   {
     name: 'hawaiian',
-    tittle: 'Hawaiian',
+    title: 'Hawaiian',
     price: 13,
     toppings: ['ham', 'pineapple'],
     img: hawaiianPic,
@@ -63,7 +63,7 @@ export default [
   },
   {
     name: 'bbq-chicken',
-    tittle: 'BBQ Chicken',
+    title: 'BBQ Chicken',
     price: 13,
     toppings: ['chicken', 'onion', 'bbq Sauce'],
     img: bbqPic,
@@ -71,7 +71,7 @@ export default [
   },
   {
     name: 'buffalo-chicken',
-    tittle: 'Buffalo Chicken',
+    title: 'Buffalo Chicken',
     price: 13,
     toppings: ['chicken', 'buffalo sauce'],
     img: buffaloPic,

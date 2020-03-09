@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getTotal, clearOrder } from '../actions';
+import { getTotal, clearOrder, removePizza } from '../actions';
 
 import Card from './Card';
 
@@ -26,8 +26,13 @@ function Order(props) {
           <ul>
             {pizzaOrder.map(item => (
               <li>
-                <span className="Title">{`${item.name} Pizza`}</span>
-                <span>{`$${item.price.toFixed(2)}`}</span>
+                <span className="Title">
+                  {`${item.title} Pizza ${
+                    item.quantity >= 2 ? `x${+item.quantity}` : ``
+                  }`}
+                </span>
+                <span>{`$${(item.price * item.quantity).toFixed(2)}`}</span>
+                <button onClick={() => props.removePizza(item)}>remove</button>
                 <ul>
                   <li>
                     <ul>
@@ -99,4 +104,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getTotal, clearOrder })(Order);
+export default connect(mapStateToProps, { getTotal, clearOrder, removePizza })(
+  Order
+);
