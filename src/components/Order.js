@@ -21,7 +21,7 @@ function Order(props) {
     <div className="Order-page">
       <div className="Container">
         <div className="Receipt">
-          <h2>Order:</h2>
+          <h1>Order:</h1>
           {pizzaOrder.length >= 1 && <h2>Pizza</h2>}
           <ul>
             {pizzaOrder.map(item => (

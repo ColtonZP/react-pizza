@@ -35,6 +35,9 @@
 		box-sizing: border-box;
 		position: relative;
 		margin-bottom: 1rem;
+		& h2 {
+			padding: 1rem 0;
+		}
 		& ul {
 			list-style: none;
 			padding: 0;
@@ -51,6 +54,11 @@
 					&:hover {
 						color: tomato;
 						text-decoration: line-through;
+						&::before {
+							content: "\2716";
+							position: absolute;
+							right: calc(100% + .2em);
+						}
 					}
 					& + span {
 						position: absolute;
