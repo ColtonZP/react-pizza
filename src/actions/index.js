@@ -1,6 +1,6 @@
 import pizzas from '../menu/pizzas';
 
-export const addPizza = (item, quantity) => dispatch => {
+export const addPizza = (item, quantity = 1) => dispatch => {
   dispatch({
     type: 'ADD_PIZZA',
     payload: { item, quantity }

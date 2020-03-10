@@ -25,19 +25,21 @@ function Order(props) {
           {pizzaOrder.length >= 1 && <h2>Pizza</h2>}
           <ul>
             {pizzaOrder.map(item => (
-              <li>
-                <span className="Title">
+              <li key={item}>
+                <span className="Title" onClick={() => props.removePizza(item)}>
                   {`${item.title} Pizza ${
                     item.quantity >= 2 ? `x${+item.quantity}` : ``
                   }`}
                 </span>
                 <span>{`$${(item.price * item.quantity).toFixed(2)}`}</span>
-                <button onClick={() => props.removePizza(item)}>remove</button>
+
                 <ul>
                   <li>
                     <ul>
                       {item.toppings &&
-                        item.toppings.map(topping => <li>{topping}</li>)}
+                        item.toppings.map(topping => (
+                          <li key={topping}>{topping}</li>
+                        ))}
                     </ul>
                   </li>
                 </ul>
@@ -47,8 +49,12 @@ function Order(props) {
           {beerOrder.length >= 1 && <h2>Beer</h2>}
           <ul>
             {beerOrder.map(item => (
-              <li>
-                <span className="Title">{item.name}</span>
+              <li key={item}>
+                <span className="Title">
+                  {`${item.name}${
+                    item.quantity >= 2 ? ` x${+item.quantity}` : ``
+                  }`}
+                </span>
                 <span>{`$${item.price.toFixed(2)}`}</span>
               </li>
             ))}
@@ -56,8 +62,12 @@ function Order(props) {
           {cocktailOrder.length >= 1 && <h2>Cocktail</h2>}
           <ul>
             {cocktailOrder.map(item => (
-              <li>
-                <span className="Title">{item.name}</span>
+              <li key={item}>
+                <span className="Title">
+                  {`${item.name}${
+                    item.quantity >= 2 ? ` x${+item.quantity}` : ``
+                  }`}
+                </span>
                 <span>{`$${item.price.toFixed(2)}`}</span>
               </li>
             ))}

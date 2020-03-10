@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import { addPizza } from '../actions';
 import pizzaPic from '../imgs/Pizza.jpg';
 import customPic from '../imgs/pizza/custom.png';
 
@@ -25,8 +28,9 @@ const nonVeggieToppings = ['Pineapple', 'BBQ Sauce', 'Buffalo Sauce'];
 function PizzaMaker(props) {
   const [pizza, changePizza] = useState({
     name: 'Custom',
+    title: 'Custom',
     toppings: [],
-    price: 12.0
+    price: 12
   });
 
   const updatePizza = async (e, topping, amount) => {
@@ -43,6 +47,8 @@ function PizzaMaker(props) {
     price += toppings.length * 0.5;
     changePizza({ ...pizza, toppings, price });
   };
+
+  const { addPizza } = props;
 
   return (
     <div className="Pizza-page">
@@ -63,7 +69,7 @@ function PizzaMaker(props) {
               <button
                 type="button"
                 className="Add-custom-pizza"
-                onClick={() => props.pizzaOrder(pizza, 'pizza')}
+                onClick={() => addPizza(pizza)}
               >
                 <span>Add to order</span>
               </button>
@@ -176,8 +182,12 @@ function PizzaMaker(props) {
   );
 }
 
-PizzaMaker.propTypes = {
-  pizzaOrder: PropTypes.arrayOf.isRequired
+const mapStateToProps = state => {
+  return { pizza: state.pizzaInfo };
 };
 
-export default PizzaMaker;
+PizzaMaker.propTypes = {
+  addPizza: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps, { addPizza })(PizzaMaker);

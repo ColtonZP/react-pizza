@@ -7,13 +7,13 @@ const pizzaOrder = (state = [], action) => {
       if (state.includes(action.payload.item)) {
         return state.map(item => {
           if (item === action.payload.item) {
-            item.quantity += 1;
+            item.quantity += action.payload.quantity;
             return item;
           }
           return item;
         });
       }
-      action.payload.item.quantity = 1;
+      action.payload.item.quantity = action.payload.quantity;
       return [...state, action.payload.item];
     case 'CLEAR_PIZZA':
       return action.payload;

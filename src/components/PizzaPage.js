@@ -7,14 +7,32 @@ import { getPizzaInfo, addPizza } from '../actions';
 import pizzaPic from '../imgs/Pizza.jpg';
 
 class PizzaPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      quantityInput: 1
+    };
+  }
+
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.getPizzaInfo(id);
   }
 
+  updateQuantity(e) {
+    const input = e.target.value;
+    if (input <= 0 && input !== null && input !== '') {
+      this.setState({ quantityInput: 1 });
+    } else {
+      this.setState({ quantityInput: input });
+    }
+  }
+
   render() {
-    const { pizza } = this.props;
+    const { pizza, addPizza } = this.props;
     const { title, price, desc, img, toppings = [] } = pizza;
+    const { quantityInput } = this.state;
+
     return (
       <div className="Pizza-page">
         <img className="Header-pic" alt="" src={pizzaPic} />
@@ -25,15 +43,23 @@ class PizzaPage extends Component {
               <span className="Pizza-price">
                 {`${title} Pizza - $${Number(price).toFixed(2)}`}
               </span>
-              <Link to="/menu">
-                <button
-                  type="button"
-                  className="Add-custom-pizza"
-                  onClick={() => this.props.addPizza(pizza, 'pizza')}
-                >
-                  <span>Add to order</span>
-                </button>
-              </Link>
+              <form>
+                <input
+                  className="Pizza-quantity"
+                  type="number"
+                  value={this.state.quantityInput}
+                  onChange={this.updateQuantity.bind(this)}
+                />
+                <Link to="/menu">
+                  <button
+                    type="button"
+                    className="Add-custom-pizza"
+                    onClick={() => addPizza(pizza, Number(quantityInput))}
+                  >
+                    <span>Add to order</span>
+                  </button>
+                </Link>
+              </form>
             </div>
           </div>
           <div className="Pizza-about">
@@ -62,7 +88,8 @@ const mapStateToProps = state => {
 
 PizzaPage.propTypes = {
   match: PropTypes.object.isRequired,
-  pizza: PropTypes.object.isRequired
+  pizza: PropTypes.object.isRequired,
+  addPizza: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, { getPizzaInfo, addPizza })(PizzaPage);
