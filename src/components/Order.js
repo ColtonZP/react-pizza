@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getTotal, clearOrder, removePizza } from '../actions';
+import {
+  getTotal,
+  clearOrder,
+  removePizza,
+  removeBeer,
+  removeCocktail
+} from '../actions';
 
 import Card from './Card';
 
@@ -21,7 +27,13 @@ function Order(props) {
     <div className="Order-page">
       <div className="Container">
         <div className="Receipt">
-          <h1>Order:</h1>
+          {pizzaOrder.length < 1 &&
+          beerOrder.length < 1 &&
+          cocktailOrder.length < 1 ? (
+            <h1>Order is empty</h1>
+          ) : (
+            <h1>Order:</h1>
+          )}
           {pizzaOrder.length >= 1 && <h2>Pizza</h2>}
           <ul>
             {pizzaOrder.map(item => (
@@ -50,7 +62,7 @@ function Order(props) {
           <ul>
             {beerOrder.map(item => (
               <li key={item}>
-                <span className="Title">
+                <span className="Title" onClick={() => props.removeBeer(item)}>
                   {`${item.name}${
                     item.quantity >= 2 ? ` x${+item.quantity}` : ``
                   }`}
@@ -63,7 +75,10 @@ function Order(props) {
           <ul>
             {cocktailOrder.map(item => (
               <li key={item}>
-                <span className="Title">
+                <span
+                  className="Title"
+                  onClick={() => props.removeCocktail(item)}
+                >
                   {`${item.name}${
                     item.quantity >= 2 ? ` x${+item.quantity}` : ``
                   }`}
@@ -114,6 +129,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getTotal, clearOrder, removePizza })(
-  Order
-);
+export default connect(mapStateToProps, {
+  getTotal,
+  clearOrder,
+  removePizza,
+  removeBeer,
+  removeCocktail
+})(Order);

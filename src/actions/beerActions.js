@@ -7,7 +7,7 @@ export const addBeer = item => dispatch => {
 
 export const removeBeer = item => dispatch => {
   dispatch({
-    type: 'REMOVE_PIZZA',
+    type: 'REMOVE_BEER',
     payload: item
   });
 };

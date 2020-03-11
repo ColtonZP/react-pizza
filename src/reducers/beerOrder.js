@@ -14,6 +14,8 @@ export default (state = [], action) => {
       return [...state, action.payload];
     case 'CLEAR_BEER':
       return action.payload;
+    case 'REMOVE_BEER':
+      return state.filter(beer => beer !== action.payload);
     default:
       return state;
   }
