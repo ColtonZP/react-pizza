@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-pizza/static/css/main.fc5a5aba.chunk.css",
-    "main.js": "/react-pizza/static/js/main.ac9050fc.chunk.js",
-    "main.js.map": "/react-pizza/static/js/main.ac9050fc.chunk.js.map",
-    "runtime-main.js": "/react-pizza/static/js/runtime-main.b417e4d9.js",
-    "runtime-main.js.map": "/react-pizza/static/js/runtime-main.b417e4d9.js.map",
-    "static/js/2.8772bdf2.chunk.js": "/react-pizza/static/js/2.8772bdf2.chunk.js",
-    "static/js/2.8772bdf2.chunk.js.map": "/react-pizza/static/js/2.8772bdf2.chunk.js.map",
+    "main.css": "/react-pizza/static/css/main.d84d9e0f.chunk.css",
+    "main.js": "/react-pizza/static/js/main.aea42b9f.chunk.js",
+    "main.js.map": "/react-pizza/static/js/main.aea42b9f.chunk.js.map",
+    "runtime-main.js": "/react-pizza/static/js/runtime-main.6a09f3fa.js",
+    "runtime-main.js.map": "/react-pizza/static/js/runtime-main.6a09f3fa.js.map",
+    "static/js/2.091d229e.chunk.js": "/react-pizza/static/js/2.091d229e.chunk.js",
+    "static/js/2.091d229e.chunk.js.map": "/react-pizza/static/js/2.091d229e.chunk.js.map",
     "index.html": "/react-pizza/index.html",
-    "precache-manifest.0be1709d5ee59a3d6841360c9ef236ca.js": "/react-pizza/precache-manifest.0be1709d5ee59a3d6841360c9ef236ca.js",
+    "precache-manifest.a41f8ace911b2c78ce226690503b0dbb.js": "/react-pizza/precache-manifest.a41f8ace911b2c78ce226690503b0dbb.js",
     "service-worker.js": "/react-pizza/service-worker.js",
-    "static/css/main.fc5a5aba.chunk.css.map": "/react-pizza/static/css/main.fc5a5aba.chunk.css.map",
-    "static/js/2.8772bdf2.chunk.js.LICENSE.txt": "/react-pizza/static/js/2.8772bdf2.chunk.js.LICENSE.txt",
+    "static/css/main.d84d9e0f.chunk.css.map": "/react-pizza/static/css/main.d84d9e0f.chunk.css.map",
+    "static/js/2.091d229e.chunk.js.LICENSE.txt": "/react-pizza/static/js/2.091d229e.chunk.js.LICENSE.txt",
     "static/media/BBQ Sauce.png": "/react-pizza/static/media/BBQ Sauce.65fc8e10.png",
     "static/media/Bacon.png": "/react-pizza/static/media/Bacon.b3f9f1a2.png",
     "static/media/Beef.png": "/react-pizza/static/media/Beef.426d41a2.png",
@@ -42,9 +42,9 @@
     "static/media/veggie.png": "/react-pizza/static/media/veggie.4583d947.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b417e4d9.js",
-    "static/js/2.8772bdf2.chunk.js",
-    "static/css/main.fc5a5aba.chunk.css",
-    "static/js/main.ac9050fc.chunk.js"
+    "static/js/runtime-main.6a09f3fa.js",
+    "static/js/2.091d229e.chunk.js",
+    "static/css/main.d84d9e0f.chunk.css",
+    "static/js/main.aea42b9f.chunk.js"
   ]
 }
