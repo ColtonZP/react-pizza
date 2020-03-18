@@ -5,6 +5,14 @@
 	top: 0;
 	z-index: -1;
 	padding-top: 30vh;
+	background: -webkit-gradient(
+			linear,
+			left top,
+			right top,
+			from(rgba(45, 45, 45, 1)),
+			color-stop(70%, rgba(45, 45, 45, 0))
+		),
+		url('../imgs/Pizza.jpg') center/cover no-repeat;
 	background: linear-gradient(
 			90deg,
 			rgba(45, 45, 45, 1) 0%,

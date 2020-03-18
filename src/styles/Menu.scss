@@ -17,8 +17,11 @@ select {
 	outline: none;
 	text-transform: uppercase;
 	font-weight: bold;
+	-webkit-transition: background 0.2s ease-in;
 	transition: background 0.2s ease-in;
 	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 	appearance: none;
 }
 
@@ -32,12 +35,6 @@ form {
 		width: 40%;
 	}
 }
-
-// .Pizza-page .Container {
-// 	display: grid;
-// 	grid-template-columns: repeat(2, 1fr);
-// 	grid-gap: 1em;
-// }
 
 .Food-flex {
 	display: grid;
@@ -55,7 +52,10 @@ form {
 		position: relative;
 		background: #1d1d1d;
 		overflow: hidden;
+		display: -webkit-box;
 		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
 		flex-direction: column;
 		& > span {
 			display: block;
@@ -70,6 +70,7 @@ form {
 		& img {
 			width: 100%;
 			height: 10rem;
+			-o-object-fit: cover;
 			object-fit: cover;
 		}
 		& button {
@@ -93,6 +94,7 @@ form {
 		width: 100%;
 		margin: 0;
 		height: 10rem;
+		-o-object-fit: cover;
 		object-fit: cover;
 		@media screen and (min-width: 600px) {
 			height: 15rem;

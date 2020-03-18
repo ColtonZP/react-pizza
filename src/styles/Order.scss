@@ -87,7 +87,10 @@
 	left: 0;
 	text-align: center;
 	& .Card-container {
+		display: -webkit-inline-box;
 		display: inline-flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
 		flex-direction: column;
 		margin: 2rem auto;
 		padding: 0 1rem;

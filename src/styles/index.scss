@@ -61,35 +61,3 @@ form input {
 		background: darken($color: tomato, $amount: 10);
 	}
 }
-
-// nav {
-// 	position: sticky;
-// 	top: 0px;
-// 	padding-top: 2em;
-// 	//float: left;
-// 	height: 0;
-// 	z-index: 2;
-// 	& ul {
-// 		position: relative;
-// 		display: table;
-// 		position: relative;
-// 		left: -10rem;
-// 	}
-// 	& li {
-// 		//display: inline;
-// 		margin-bottom: 1rem;
-// 		mix-blend-mode: difference;
-// 	}
-// 	& a {
-// 		background: none;
-// 		color: black;
-// 		transition: padding ease-out 0.3s;
-// 		&:visited {
-// 			color: black;
-// 		}
-// 		&:hover {
-// 			color: darken($mainBlue, 10%);
-// 			padding-left: 1.5rem;
-// 		}
-// 	}
-// }
