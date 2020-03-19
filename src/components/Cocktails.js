@@ -6,7 +6,7 @@ import { addCocktail } from '../actions';
 import cocktailPic from '../imgs/cocktail.jpg';
 
 function Cocktails(props) {
-  const { cocktails } = props;
+  const { cocktails, notify } = props;
 
   const [selectedCocktail, changeDrink] = useState(cocktails[0]);
 
@@ -30,7 +30,10 @@ function Cocktails(props) {
           type="submit"
           value="add to order"
           className=""
-          onClick={() => props.addCocktail(selectedCocktail)}
+          onClick={() => {
+            notify(`${selectedCocktail.name} added to order.`);
+            props.addCocktail(selectedCocktail);
+          }}
         />
       </form>
     </div>

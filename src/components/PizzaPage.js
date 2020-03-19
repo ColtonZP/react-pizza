@@ -29,7 +29,7 @@ class PizzaPage extends Component {
   }
 
   render() {
-    const { pizza, addPizza } = this.props;
+    const { pizza, addPizza, notify } = this.props;
     const { title, price, desc, img, toppings = [] } = pizza;
     const { quantityInput } = this.state;
 
@@ -54,7 +54,12 @@ class PizzaPage extends Component {
                   <button
                     type="button"
                     className="Add-custom-pizza"
-                    onClick={() => addPizza(pizza, Number(quantityInput))}
+                    onClick={() => {
+                      notify(
+                        `${quantityInput} ${pizza.title} pizza added to order.`
+                      );
+                      addPizza(pizza, Number(quantityInput));
+                    }}
                   >
                     <span>Add to order</span>
                   </button>

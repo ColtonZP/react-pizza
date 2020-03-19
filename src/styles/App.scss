@@ -127,3 +127,19 @@ nav {
 .Active {
 	pointer-events: none;
 }
+
+.Notification {
+	position: fixed;
+	top: 0;
+	margin: 1em 10vw;
+	padding: 1em;
+	width: 80vw;
+	background-color: tomato;
+	animation: hide .5s linear 2.5s;
+	z-index: 2;
+}
+
+@keyframes hide {
+	from {top: 0px;}
+	to {top:-150px;}
+}

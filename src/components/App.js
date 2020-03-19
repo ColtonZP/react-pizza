@@ -7,44 +7,55 @@ import Menu from './Menu';
 import PizzaMaker from './PizzaMaker';
 import PizzaPage from './PizzaPage';
 import Order from './Order';
+import Notification from './Notification';
 import ScrollToTop from './ScrollToTop';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notifications: []
+    };
+  }
+
+  notify = message => {
+    const { notifications } = this.state;
+    const index = notifications.length;
+    console.log(index);
+    this.setState({
+      notifications: [...notifications, <Notification message={message} />]
+    });
+    setTimeout(() => {
+      this.setState({
+        notifications: []
+      });
+    }, 3000);
+  };
+
   render() {
     return (
       <div className="App">
         <Router onUpdate={() => window.scrollTo(0, 0)}>
           <ScrollToTop>
             <Header />
+            {this.state.notifications}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route
                 exact
                 path="/menu"
-                component={() => (
-                  <Menu
-                    pizzaOrder={this.addToOrder}
-                    beerOrder={this.addToOrder}
-                    cocktailOrder={this.addToOrder}
-                  />
-                )}
+                component={() => <Menu notify={this.notify} />}
               />
               <Route
                 exact
                 path="/pizza/maker"
-                component={() => <PizzaMaker pizzaOrder={this.addToOrder} />}
+                component={() => <PizzaMaker />}
               />
-              <Route
-                exact
-                path="/order"
-                component={() => (
-                  <Order order={this.state} finishOrder={this.clearOrder} />
-                )}
-              />
+              <Route exact path="/order" component={() => <Order />} />
               <Route
                 path="/pizza-:id"
                 component={props => (
-                  <PizzaPage match={props.match} pizzaOrder={this.addToOrder} />
+                  <PizzaPage match={props.match} notify={this.notify} />
                 )}
               />
             </Switch>

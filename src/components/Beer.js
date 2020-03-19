@@ -6,7 +6,7 @@ import { addBeer } from '../actions';
 import beerPic from '../imgs/beer.jpg';
 
 function Beer(props) {
-  const { beers } = props;
+  const { beers, notify } = props;
   const [selectedBeer, changeDrink] = useState(beers[0]);
 
   const returnDrink = str => {
@@ -28,7 +28,10 @@ function Beer(props) {
         <input
           type="submit"
           value="add to order"
-          onClick={() => props.addBeer(selectedBeer)}
+          onClick={() => {
+            notify(`${selectedBeer.name} added to order.`);
+            props.addBeer(selectedBeer);
+          }}
         />
       </form>
     </div>

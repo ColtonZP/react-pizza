@@ -3,7 +3,8 @@ import Pizza from './Pizza';
 import Beer from './Beer';
 import Cocktails from './Cocktails';
 
-function Menu() {
+function Menu(props) {
+  const { notify } = props;
   return (
     <div className="Menu-page Container">
       <h2>Pizza</h2>
@@ -11,11 +12,11 @@ function Menu() {
       <div className="Menu-page-drinks">
         <div className="Drink-option">
           <h2>Beers</h2>
-          <Beer />
+          <Beer notify={notify} />
         </div>
         <div className="Drink-option">
           <h2>Cocktails</h2>
-          <Cocktails />
+          <Cocktails notify={notify} />
         </div>
       </div>
     </div>
